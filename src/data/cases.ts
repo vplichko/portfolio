@@ -490,7 +490,7 @@ const iav: Case = {
   ],
   tldr: {
     challenge: 'IAV employees needed a fast way to search complex technical documentation. The client had rejected the previous design direction.',
-    did: 'Clarified requirements, restructured the product and redesigned it from scratch in 15 weeks: research, flows, a prompt library and light and dark themes on IAV’s corporate design.',
+    did: 'Audited the rejected version and redesigned the product in 15 weeks on one system of type, colour tokens and component states: research, flows, a prompt library and light and dark themes on IAV’s corporate design.',
     outcome: 'Wibo became part of daily work: within the first months, over 40% of employees used it every day, they created 300+ prompts, and finding documentation got about 30% faster.',
   },
   numbers: [
@@ -512,14 +512,14 @@ const iav: Case = {
     },
     {
       label: 'Starting point',
-      heading: 'The client wasn’t happy with the previous design direction. I started again from the requirements, not from the old screens.',
-      lead: 'I clarified requirements with stakeholders and rebuilt the structure around three zones: chat history on the left, the conversation in the centre, saved prompts on the right.',
+      heading: 'The client rejected the previous version: the structure was there, but the UI was inconsistent and full of small errors.',
+      lead: 'Typography, colours and component behaviour changed from screen to screen, and visual errors made the tool feel unfinished. I audited the screens, set one system of text styles, colour tokens and component states on IAV’s corporate design, and redesigned every screen on it.',
       blocks: [
-        { type: 'image', image: { src: 'iav/old-vs-new.png', alt: 'The previous design direction next to the redesigned Wibo chat with history, conversation and prompts in three zones', caption: 'Previous direction (left) and my redesign (right)', ratio: '1168 / 382' } },
+        { type: 'image', image: { src: 'iav/old-vs-new.png', alt: 'The previous version of the Wibo chat next to my redesign: the same layout, with consistent type, colours and components', caption: 'Previous version (left) and my redesign (right): the same structure, made consistent', ratio: '1168 / 382' } },
         { type: 'cards', items: [
-          { eyebrow: 'What changed', title: 'Three clear zones', text: 'History on the left, the chat in the centre, saved prompts on the right. Each zone has one job.' },
-          { eyebrow: 'What changed', title: 'Expectations up front', text: 'The empty chat explains what Wibo can do, where it can be wrong, and gives example prompts.' },
-          { eyebrow: 'What changed', title: 'IAV’s corporate design', text: 'Colours and tokens follow IAV’s CD, in a light and a dark theme.' },
+          { eyebrow: 'What changed', title: 'One type scale', text: 'Inter in three weights and fixed text styles, instead of sizes and weights that changed from screen to screen.' },
+          { eyebrow: 'What changed', title: 'Colours as tokens', text: 'Every colour is a token mapped to IAV’s CD, with a light and a dark value. No more one-off shades.' },
+          { eyebrow: 'What changed', title: 'Consistent behaviour', text: 'Buttons, inputs, menus and empty states work the same everywhere, with every state designed.' },
         ] },
       ],
     },

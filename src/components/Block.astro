@@ -5,6 +5,8 @@ import Facts from './Facts.astro';
 import type { Block } from '../data/types';
 interface Props { b: Block }
 const { b } = Astro.props;
+// Short status values shown as coloured pills in tables; everything else stays plain text
+const pills = ['low', 'medium', 'high', 'test next', 'test first'];
 ---
 {b.type === 'text' && (
   <div class="text measure">{b.paragraphs.map((p) => <p class="body-l">{p}</p>)}</div>
@@ -71,7 +73,7 @@ const { b } = Astro.props;
       <table>
         <caption class="visually-hidden">{b.caption}</caption>
         <thead><tr>{b.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
-        <tbody>{b.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td><span class:list={['risk', c.toLowerCase().replace(/\s/g, '-')]}>{c}</span></td>)}</tr>)}</tbody>
+        <tbody>{b.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{pills.includes(c.toLowerCase()) ? <span class:list={['risk', c.toLowerCase().replace(/\s/g, '-')]}>{c}</span> : c}</td>)}</tr>)}</tbody>
       </table>
       {b.note && <p class="label label-s note">{b.note}</p>}
     </div>
@@ -212,7 +214,7 @@ const { b } = Astro.props;
   th, td { text-align: left; vertical-align: top; padding: 0.875rem 0.75rem; border-bottom: 1px solid var(--border); }
   thead th { font-size: 0.8125rem; color: var(--text-muted); font-weight: 500; }
   tbody th { font-weight: 500; max-width: 18rem; }
-  .risk { display: inline-block; padding: 0.125rem 0.5rem; border-radius: 999px; font-size: 0.8125rem; }
+  .risk { display: inline-block; padding: 0.125rem 0.5rem; border-radius: 999px; font-size: 0.8125rem; white-space: nowrap; }
   .low { background: #E3F4EA; color: #1E6B3E; } .medium { background: #FFF3D6; color: #7A4D00; } .high { background: #FCE4E4; color: #A12020; }
   .test-first, .test-next { background: #FFF3D6; color: #7A4D00; }
   .note { margin-top: 1rem; }
