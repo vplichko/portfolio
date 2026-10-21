@@ -141,7 +141,7 @@ const takraf: Case = {
       heading: 'Together with developers, I designed every state a flow can be in: errors, success, expired sessions and no access.',
       blocks: [{ type: 'images', images: [
         { src: 'takraf/state-validation.png', alt: 'Request form with validation errors under required fields', caption: 'Validation errors' },
-        { src: 'takraf/state-success.png', alt: 'Administration list with a success toast after approving a user', caption: 'Success toast' },
+        { src: 'takraf/state-session-expired.png', alt: 'Session expired screen with a short explanation and a Sign in again button', caption: 'Session expired' },
       ] }],
     },
     {
