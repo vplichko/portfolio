@@ -92,6 +92,9 @@ const ogImage = new URL(withBase('/og.png'), Astro.site);
       const sendEvent = (path: string) => whenReady(() => gc()!.count({ path, title: path, event: true }));
       let sentDepth = new Set<number>();
       let sectionObserver: IntersectionObserver | null = null;
+      // Sections read on the current page, sent as one summary when the visitor leaves
+      let seen = new Set<string>();
+      let sectionsTotal = 0;
       let ticking = false;
       const checkDepth = () => {
         ticking = false;
@@ -106,7 +109,8 @@ const ogImage = new URL(withBase('/og.png'), Astro.site);
         sentDepth = new Set();
         setTimeout(checkDepth, 800);
         sectionObserver?.disconnect();
-        const seen = new Set<string>();
+        seen = new Set<string>();
+        sectionsTotal = document.querySelectorAll('[data-track-section]').length;
         sectionObserver = new IntersectionObserver((entries) => {
           entries.forEach((en) => {
             const name = (en.target as HTMLElement).dataset.trackSection || '';
@@ -129,6 +133,10 @@ const ogImage = new URL(withBase('/og.png'), Astro.site);
         if (visibleSince) { visibleMs += performance.now() - visibleSince; visibleSince = 0; }
         const name = `${timePage} · time ${bucket(visibleMs / 1000)}`;
         const g = gc(); if (g) g.count({ path: name, title: name, event: true });
+        if (g && sectionsTotal) {
+          const read = `${timePage} · read ${seen.size} of ${sectionsTotal} sections`;
+          g.count({ path: read, title: read, event: true });
+        }
       };
       document.addEventListener('astro:page-load', startTimer);
       document.addEventListener('astro:before-preparation', sendTime);

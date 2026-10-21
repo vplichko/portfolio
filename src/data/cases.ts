@@ -465,12 +465,161 @@ const cleanconnect: Case = {
       ] }],
     },
   ],
+  next: 'iav',
+};
+
+const iav: Case = {
+  slug: 'iav',
+  number: '04',
+  title: 'IAV Wibo AI Chat',
+  subtitle: 'An AI assistant trained only on IAV’s documentation, redesigned from scratch for engineers.',
+  eyebrow: ['Internal AI tool', 'Automotive engineering', '2025'],
+  category: 'Automotive · Internal AI tool',
+  cardTitle: 'IAV Wibo: an internal AI assistant engineers use every day',
+  cardMeta: '40%+ of employees use it daily · 300+ prompts created',
+  cover: { src: 'iav/card.png', alt: 'Wibo AI chat on desktop and on a phone: an empty chat with capabilities, limitations and example prompts' },
+  coverBg: 'linear-gradient(160deg, #EFF4FF, #C4DAF6)',
+  hero: { src: 'iav/hero.png', alt: 'Wibo AI chat on desktop and mobile: the empty chat explains what Wibo can do', ratio: '1280 / 692' },
+  snapshot: [
+    { k: 'Client', v: 'IAV · Berlin, Germany' },
+    { k: 'Industry', v: 'Automotive engineering · Internal tools' },
+    { k: 'My role', v: 'Product Designer (sole designer): requirements, UX, UI, design system, user testing' },
+    { k: 'Team', v: '~10 people' },
+    { k: 'Year', v: '2025' },
+    { k: 'Platforms', v: 'Web · Tablet · Mobile · Light & dark theme' },
+  ],
+  tldr: {
+    challenge: 'IAV employees needed a fast way to search complex technical documentation. The client had rejected the previous design direction.',
+    did: 'Clarified requirements, restructured the product and redesigned it from scratch in 15 weeks: research, flows, a prompt library and light and dark themes on IAV’s corporate design.',
+    outcome: 'Wibo became part of daily work: within the first months, over 40% of employees used it every day, they created 300+ prompts, and finding documentation got about 30% faster.',
+  },
+  numbers: [
+    { v: '40%+', l: 'Employees using it daily' },
+    { v: '300+', l: 'Custom prompts created' },
+    { v: '−30%', l: 'Time to find documentation' },
+    { v: '15', l: 'Weeks, research to spec' },
+    { v: '2', l: 'Themes, light & dark' },
+  ],
+  sections: [
+    {
+      label: 'Challenge',
+      heading: 'IAV wanted an assistant like ChatGPT that knows only IAV: simple for daily questions, strong enough for technical work.',
+      blocks: [{ type: 'cards', items: [
+        { eyebrow: 'Challenge 01', title: 'Technical users', text: 'Engineers and specialists needed a simple, fast interface that still handles complex technical workflows.' },
+        { eyebrow: 'Challenge 02', title: 'Prompts without expertise', text: 'People needed to create and reuse prompts without knowing anything about prompt engineering.' },
+        { eyebrow: 'Challenge 03', title: 'A high bar', text: 'IAV’s engineering culture expected a polished tool that fits the corporate design from day one.' },
+      ] }],
+    },
+    {
+      label: 'Starting point',
+      heading: 'The client wasn’t happy with the previous design direction. I started again from the requirements, not from the old screens.',
+      lead: 'I clarified requirements with stakeholders and rebuilt the structure around three zones: chat history on the left, the conversation in the centre, saved prompts on the right.',
+      blocks: [
+        { type: 'image', image: { src: 'iav/old-vs-new.png', alt: 'The previous design direction next to the redesigned Wibo chat with history, conversation and prompts in three zones', caption: 'Previous direction (left) and my redesign (right)', ratio: '1168 / 382' } },
+        { type: 'cards', items: [
+          { eyebrow: 'What changed', title: 'Three clear zones', text: 'History on the left, the chat in the centre, saved prompts on the right. Each zone has one job.' },
+          { eyebrow: 'What changed', title: 'Expectations up front', text: 'The empty chat explains what Wibo can do, where it can be wrong, and gives example prompts.' },
+          { eyebrow: 'What changed', title: 'IAV’s corporate design', text: 'Colours and tokens follow IAV’s CD, in a light and a dark theme.' },
+        ] },
+      ],
+    },
+    {
+      label: 'Research & process',
+      heading: '15 weeks from research to a build-ready specification. Each phase ended with something the team could review.',
+      blocks: [{ type: 'pills', numbered: true, items: ['Research · 2 weeks', 'UX design · 3 weeks', 'UI design · 7 weeks', 'User testing · 3 weeks', 'Specification'] }],
+    },
+    {
+      label: 'Prompt library',
+      heading: 'Prompts turn a chat into a work tool. I designed the whole flow, from an empty list to reuse in one click.',
+      lead: 'A prompt is created from inside a conversation, so people save what already worked instead of writing from scratch. Saved prompts live in their own panel on the right and never mix with chat history.',
+      blocks: [
+        { type: 'pills', numbered: true, items: ['Start a chat', 'Attach files', 'Create an image', 'Switch language', 'Choose a model', 'Save a prompt', 'Use a prompt', 'Delete a prompt', 'Chat files'] },
+        { type: 'flow', badge: 'Featured flow', title: 'Save a prompt: reuse what worked in one click', steps: ['Chat with Wibo', 'New prompt', 'Name + text', 'Saved in panel', 'View prompt', 'Use prompt'], notes: [
+          { title: 'Empty list', text: 'The panel explains what prompts are and where they will appear.' },
+          { title: 'No chat yet', text: 'New prompt works only inside a conversation, and the empty state says why.' },
+          { title: 'One modal', text: 'View, use or delete a prompt in one place. No extra screens.' },
+        ] },
+      ],
+    },
+    {
+      label: 'Key design decisions',
+      heading: 'Three decisions that make an AI tool both trustworthy and fast for engineers.',
+      blocks: [
+        { type: 'decision', problemTag: 'Risk 01 · Trust', problem: 'People either trust an internal AI tool too much or not at all. Both are risky for engineering work.', meta: 'High risk for technical questions', decisionTitle: 'Honest empty state', decision: 'The first screen shows capabilities, limitations and example prompts, so people know what to expect before they ask.', image: { src: 'iav/decision-capabilities.png', alt: 'Empty Wibo chat: (1) capabilities, what Wibo can do; (2) limitations, where it can be wrong', ratio: '661 / 506' } },
+        { type: 'decision', flip: true, problemTag: 'Risk 02 · Prompts', problem: 'Good prompts are hard to write. Without help, people retype the same long requests every day.', meta: 'High risk for non-expert users', decisionTitle: 'A prompt library next to the chat', decision: 'Saved prompts sit in their own panel, apart from history. A prompt opens in one modal, where it can be used or deleted.', image: { src: 'iav/decision-prompt-modal.png', alt: 'Prompt modal: (1) a prompt opens in one modal; (2) use or delete it from the same place', ratio: '661 / 462' } },
+        { type: 'cards', columns: 2, items: [{ eyebrow: 'Risk 03 · Files', title: 'Files stay with the conversation', text: 'Engineers work with PDFs, code and images. Every file attached to a chat appears in a Chat files panel, with its type and upload date, so nothing gets lost in a long thread.' }] },
+      ],
+    },
+    {
+      label: 'Design system',
+      heading: 'Built on IAV’s corporate design tokens and extended for an AI chat, in light and dark themes.',
+      blocks: [
+        { type: 'stats', items: [
+          { v: '20', l: 'Colour tokens, each with a light and a dark value' },
+          { v: '2', l: 'Themes: light and dark' },
+          { v: '13', l: 'Spacing steps on a 4 px grid' },
+          { v: '3', l: 'Weights of Inter' },
+        ] },
+        { type: 'pills', items: ['Shell: header, history, panels', 'Messages: user and Wibo', 'Composer: files, language, image, model', 'Capabilities cards', 'Prompt list', 'Empty states', 'Prompt modal', 'Chat files panel', 'Attachment preview'] },
+        { type: 'table', caption: 'Colour tokens with light and dark values, mapped to IAV’s corporate design names', head: ['Token', 'Light', 'Dark'], rows: [
+          ['colorPrimary', '#0091FF · B3', '#0091FF · B3'],
+          ['colorText', '#001A54 · B0', '#F2F4F4 · G1'],
+          ['colorBgLayout', '#F2F4F4 · G1', '#000000 · Black'],
+          ['colorBgContainer', '#FFFFFF · White', '#1A1A1A · G6'],
+          ['colorBorder', '#C8C6C6 · G2', '#333333 · G5'],
+        ], note: 'Every colour is a token with a light and a dark value. Developers switch the theme, not the components. 20 tokens: primary, status, text, surfaces, menu and table states.' },
+      ],
+    },
+    {
+      label: 'States & edge cases',
+      heading: 'Every panel has an empty state that explains the next step, and the layout adapts from desktop down to mobile.',
+      blocks: [
+        { type: 'images', images: [
+          { src: 'iav/state-empty-prompts.png', alt: 'Empty prompt list with a short explanation and a New prompt button', caption: 'Empty prompt list', ratio: '576 / 402' },
+          { src: 'iav/state-prompt-details.png', alt: 'Prompt details modal over the chat', caption: 'Prompt details', ratio: '576 / 402' },
+        ] },
+        { type: 'images', images: [
+          { src: 'iav/state-chat-files.png', alt: 'Chat files panel listing every file attached to the conversation', caption: 'Chat files', ratio: '576 / 360' },
+          { src: 'iav/state-mobile.png', alt: 'Wibo on two phones: the empty chat and a conversation', caption: 'Mobile', ratio: '576 / 360' },
+        ] },
+      ],
+    },
+    {
+      label: 'Visuals',
+      heading: 'The final UI in light and dark themes. Desktop first, adapted for tablet and mobile.',
+      blocks: [
+        { type: 'image', image: { src: 'iav/ui-light.png', alt: 'Wibo in the light theme: history, conversation and saved prompts on one screen', caption: 'Light theme: history, conversation and saved prompts on one screen.', ratio: '1168 / 746' } },
+        { type: 'image', image: { src: 'iav/ui-dark-mobile.png', alt: 'Wibo in the dark theme on desktop and on a phone', caption: 'Dark theme & mobile: the same structure in dark mode and on a phone.', ratio: '1168 / 704' } },
+        { type: 'image', image: { src: 'iav/ui-prompts-files.png', alt: 'A saved prompt open in a modal, and the chat files panel on a phone', caption: 'Prompts & files: open a saved prompt or find every file attached to a conversation.', ratio: '1168 / 507' } },
+      ],
+    },
+    {
+      label: 'Results',
+      heading: 'Within the first months, Wibo became part of daily work across several departments.',
+      blocks: [
+        { type: 'outcomes', items: [
+          { title: '40%+ daily users', text: 'Within the first months, over 40% of the company’s employees had daily active sessions in Wibo.' },
+          { title: '300+ custom prompts', text: 'Employees created more than 300 prompts for their daily tasks, without prompt-engineering skills.' },
+          { title: '~30% faster search', text: 'Time to find documentation dropped by about 30%.' },
+          { title: 'Used across departments', text: 'Several departments use Wibo as a reliable knowledge assistant in their daily work.' },
+          { title: 'A rejected direction, replaced', text: 'The redesign replaced a direction the client had rejected, and it went live.' },
+          { title: 'Ready to grow', text: 'The product keeps growing with new internal data and features on the same system.' },
+        ] },
+        { type: 'list', label: 'What’s next for design', items: [
+          { title: 'Show sources in answers', text: 'Link each answer to the internal documents it came from, so engineers can check it.' },
+          { title: 'Share prompts across teams', text: 'Let departments publish their best prompts as templates for colleagues.' },
+          { title: 'Measure prompt reuse', text: 'Track which saved prompts are reused and improve the library based on that.' },
+          { title: 'Test accessibility', text: 'Check WCAG 2.2 AA in both themes with a keyboard, screen readers and zoom.' },
+        ] },
+      ],
+    },
+  ],
   next: 'liki24',
 };
 
 const liki24: Case = {
   slug: 'liki24',
-  number: '04',
+  number: '05',
   title: 'Liki24: why users abandon checkout',
   subtitle: 'A research sprint for a Ukrainian pharmacy delivery platform: from 29 in-depth interviews to tested checkout improvements.',
   eyebrow: ['B2C · Pharmacy delivery', 'Projector study project'],
@@ -624,7 +773,7 @@ const liki24: Case = {
 
 const vchasno: Case = {
   slug: 'vchasno',
-  number: '05',
+  number: '06',
   title: 'Vchasno: closing a revenue leak in team signing',
   subtitle: 'Product discovery for an e-document platform used by over half a million companies: architecture analysis with OOUX and BPMN, two tested solutions, and one of the client’s top two picks.',
   eyebrow: ['B2B e-signature', 'Projector study project'],
@@ -744,5 +893,5 @@ const vchasno: Case = {
   next: 'takraf',
 };
 
-export const cases: Case[] = [takraf, allyz, cleanconnect, liki24, vchasno];
+export const cases: Case[] = [takraf, allyz, cleanconnect, iav, liki24, vchasno];
 export const getCase = (slug: string) => cases.find((c) => c.slug === slug);
